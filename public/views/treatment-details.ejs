@@ -27,7 +27,10 @@
         <p><strong>Last Treated Date:</strong> <%= treatmentDetails[0].last_treated_date %></p>
         <p><strong>Short Detail:</strong> <%= treatmentDetails[0].short_detail %></p>
         <p><strong>Doctor Name:</strong> <%= treatmentDetails[0].doctor_name %></p>
+        <a href="/update-doctor/<%= treatmentDetails[0].doctorID %>">Edit</a>
         <p><strong>Patient Name:</strong> <%= treatmentDetails[0].patient_name %></p>
+        <a href="/update-patient/<%= treatmentDetails[0].patientID %>">Edit</a>
+
       </div>
 
       <!-- ตารางแสดงรายละเอียดการรักษาที่เหลือ -->
@@ -40,6 +43,8 @@
             <th>Next Treatment Date</th>
             <th>Dispensing Medicine</th>
             <th>Latest Treatment Detail</th>
+            <th>Edit</th>
+
           </tr>
         </thead>
         <tbody>
@@ -50,6 +55,8 @@
             <td><%= detail.next_treatment_date %></td>
             <td><%= detail.dispensing_medicine %></td>
             <td><%= detail.latest_treatment_detail %></td>
+            <td><a class="details-link" href="/update-treatment-detail/<%= detail.treatment_detail_id %>">Details</a></td>
+
           </tr>
           <% }) %>
         </tbody>

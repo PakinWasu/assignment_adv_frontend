@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Treatment Detail</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Update Treatment Detail</h1>
+    </header>
+    <main>
+        <form id="update-treatment-detail-form" action="/update-treatment-detail/<%= treatmentDetail.id %>" method="POST">
+         <input type="hidden" id="treatmentID" name="treatmentID" value="<%= treatmentDetail.treatmentID %>" required />
+           
+            <label for="timestamp">Timestamp:</label>
+            <input type="datetime-local" id="timestamp" name="timestamp" value="<%= treatmentDetail.timestamp %>" required />
+
+            <label for="next_treatment_date">Next Treatment Date:</label>
+            <input type="date" id="next_treatment_date" name="next_treatment_date" value="<%= treatmentDetail.next_treatment_date %>" required />
+
+            <label for="dispensing_medicine">Dispensing Medicine:</label>
+            <textarea id="dispensing_medicine" name="dispensing_medicine" required><%= treatmentDetail.dispensing_medicine %></textarea>
+
+            <label for="latest_treatment_detail">Latest Treatment Detail:</label>
+            <textarea id="latest_treatment_detail" name="latest_treatment_detail" required><%= treatmentDetail.latest_treatment_detail %></textarea>
+
+            <button type="submit">Update</button>
+        </form>
+    </main>
+</body>
+</html>
