@@ -1,0 +1,85 @@
+/* Reset some default styles */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+ font-family: Arial, sans-serif;
+ background-color: #f4f4f4; /* Light gray background */
+ color: #333; /* Dark text color */
+ line-height: 1.6; /* Improve line height for readability */
+}
+
+header {
+ background: #007bff; /* Blue background for header */
+ color: white; /* White text color */
+ padding: 10px 20px; /* Padding around the header */
+}
+
+header h1 {
+ margin: 0; /* Remove default margin */
+}
+
+nav {
+ margin-top: 10px; /* Space between the header title and navigation */
+}
+
+nav a {
+ color: white; /* White text for links */
+ margin: 0 15px; /* Space between links */
+ text-decoration: none; /* Remove underline from links */
+ font-weight: bold; /* Bold text for links */
+}
+
+nav a:hover {
+ text-decoration: underline; /* Underline links on hover */
+}
+
+main {
+ padding: 20px; /* Padding inside the main section */
+}
+
+h2 {
+ margin-bottom: 20px; /* Space below the heading */
+}
+
+table {
+ width: 100%; /* Full width table */
+ border-collapse: collapse; /* Collapse borders */
+ margin-top: 20px; /* Space above the table */
+}
+
+th, td {
+ border: 1px solid #dddddd; /* Light gray border */
+ text-align: left; /* Left-align text */
+ padding: 12px; /* Padding for table cells */
+}
+
+th {
+ background-color: #007bff; /* Blue background for header cells */
+ color: white; /* White text color for header cells */
+}
+
+tr:nth-child(even) {
+ background-color: #f2f2f2; /* Light gray for even rows */
+}
+
+tr:hover {
+ background-color: #e9ecef; /* Slightly darker gray on row hover */
+}
+
+a.details-link {
+ display: inline-block; /* Make it block-level for padding */
+ margin-top: 10px; /* Space above the link */
+ padding: 8px 12px; /* Padding for the link */
+ background-color: #007bff; /* Button-like background */
+ color: white; /* White text */
+ text-decoration: none; /* Remove underline */
+ border-radius: 5px; /* Rounded corners */
+}
+
+a.details-link:hover {
+ background-color: #0056b3; /* Darker blue on hover */
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treatment Details</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>INET Clinic</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/treatment">Treatments</a>
+        <a href="/patients">Patients</a>
+        <a href="/doctors">Doctors</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Treatment Details</h2>
+
+      <!-- ส่วนแสดงข้อมูลหลักเหนือตาราง -->
+      <div class="treatment-summary">
+        <p><strong>Treatment ID:</strong> <%= treatmentDetails[0].treatmentID %></p>
+        <p><strong>Status:</strong> <%= treatmentDetails[0].status %></p>
+        <p><strong>Start Treatment Date:</strong> <%= treatmentDetails[0].start_treatment_date %></p>
+        <p><strong>Last Treated Date:</strong> <%= treatmentDetails[0].last_treated_date %></p>
+        <p><strong>Short Detail:</strong> <%= treatmentDetails[0].short_detail %></p>
+        <p><strong>Doctor Name:</strong> <%= treatmentDetails[0].doctor_name %></p>
+        <p><strong>Patient Name:</strong> <%= treatmentDetails[0].patient_name %></p>
+      </div>
+
+      <!-- ตารางแสดงรายละเอียดการรักษาที่เหลือ -->
+      <% if (treatmentDetails.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Treatment Detail ID</th>
+            <th>Timestamp</th>
+            <th>Next Treatment Date</th>
+            <th>Dispensing Medicine</th>
+            <th>Latest Treatment Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% treatmentDetails.forEach(detail => { %>
+          <tr>
+            <td><%= detail.treatment_detail_id %></td>
+            <td><%= detail.timestamp %></td>
+            <td><%= detail.next_treatment_date %></td>
+            <td><%= detail.dispensing_medicine %></td>
+            <td><%= detail.latest_treatment_detail %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <p>No treatment details found for this treatment ID.</p>
+      <% } %>
+    </main>
+  </body>
+</html>

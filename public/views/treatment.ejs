@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinic Management System</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>INET Clinic</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/patients">Patients</a>
+        <a href="/doctors">Doctors</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Treatments</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Start Date</th>
+            <th>Last Treated Date</th>
+            <th>Short Detail</th>
+            <th>Doctor Name</th>
+            <th>Patient Name</th>
+            <th>Details</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% treatments.forEach(treatment => { %>
+          <tr>
+            <td><%= treatment.id %></td>
+            <td><%= treatment.status %></td>
+            <td><%= treatment.start_treatment_date %></td>
+            <td><%= treatment.last_treated_date %></td>
+            <td><%= treatment.short_detail %></td>
+            <td><%= treatment.doctor_name %></td>
+            <td><%= treatment.patient_name %></td>
+            <td><a class="details-link" href="/treatment-details/<%= treatment.id %>">Details</a></td>
+
+            
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

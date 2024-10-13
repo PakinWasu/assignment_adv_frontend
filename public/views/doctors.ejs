@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Doctor</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Clinic Management System</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/doctors">Doctors</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Update Doctor Information</h2>
+        <form id="update-doctor-form" action="/update-doctor/<%= doctor.id %>" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= doctor.name %>" required />
+
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" value="<%= doctor.department %>" required />
+
+            <label for="contact">Contact:</label>
+            <input type="tel" id="contact" name="contact" value="<%= doctor.contact %>" required />
+
+            <label for="date_of_birth">Date of Birth:</label>
+            <input type="date" id="date_of_birth" name="date_of_birth" value="<%= doctor.date_of_birth %>" required />
+
+            <label for="doctor_detail">Doctor Detail:</label>
+            <textarea id="doctor_detail" name="doctor_detail" required><%= doctor.doctor_detail %></textarea>
+
+            <label for="medical_practice_license_number">Medical Practice License Number:</label>
+            <input type="text" id="medical_practice_license_number" name="medical_practice_license_number" value="<%= doctor.medical_practice_license_number %>" required />
+
+            <button type="submit">Update Doctor</button>
+        </form>
+    </main>
+</body>
+</html>
