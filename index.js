@@ -140,7 +140,41 @@ app.post("/update-treatment-detail/:id", async (req, res) => {
         res.status(500).send('Error updating treatment detail');
     }
 });
+app.get("/update-treatment-detail/:id", async (req, res) => {
+    try {
+        // Fetch the treatment detail data by its ID
+        const response = await axios.get(`${base_url}/treatment-detail/${req.params.id}`);
+        res.render("update-treatment-detail", { treatmentDetail: response.data });
+    } catch (err) {
+        console.error('Error fetching treatment detail:', err);
+        res.status(500).send('Error fetching treatment detail data');
+    }
+});
 
+// Route to handle form submission and update treatment detail
+app.post("/update-treatment-detail/:id", async (req, res) => {
+    try {
+        const treatmentDetailID = req.params.id;
+
+        // Collect the data from the form fields
+        const data = {
+            treatmentID:req.body.treatmentID,
+            timestamp: req.body.timestamp,
+            next_treatment_date: req.body.next_treatment_date,
+            dispensing_medicine: req.body.dispensing_medicine,
+            latest_treatment_detail: req.body.latest_treatment_detail
+        };
+
+        // Send the update request to the API or database
+        await axios.put(`${base_url}/treatment-detail/${treatmentDetailID}`, data);
+
+        // Redirect to the treatment detail or another relevant page after updating
+        res.redirect("/");
+    } catch (err) {
+        console.error('Error updating treatment detail:', err);
+        res.status(500).send('Error updating treatment detail');
+    }
+});
 
 const PORT = process.env.PORT || 5500;
 app.listen(PORT, () => {
