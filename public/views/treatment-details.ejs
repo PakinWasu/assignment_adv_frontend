@@ -30,6 +30,7 @@
         <a href="/update-doctor/<%= treatmentDetails[0].doctorID %>">Edit</a>
         <p><strong>Patient Name:</strong> <%= treatmentDetails[0].patient_name %></p>
         <a href="/update-patient/<%= treatmentDetails[0].patientID %>">Edit</a>
+        <a href="/delete-treatment/<%= treatmentDetails[0].treatmentID %>">Delete</a>
 
       </div>
 
@@ -56,6 +57,7 @@
             <td><%= detail.dispensing_medicine %></td>
             <td><%= detail.latest_treatment_detail %></td>
             <td><a class="details-link" href="/update-treatment-detail/<%= detail.treatment_detail_id %>">Details</a></td>
+            <td><a class="details-link" href="/delete-treatment-detail/<%= detail.treatment_detail_id %>">Del</a></td>
 
           </tr>
           <% }) %>
@@ -64,6 +66,9 @@
       <% } else { %>
       <p>No treatment details found for this treatment ID.</p>
       <% } %>
+      <a href="/add-treatment-detail?treatmentID=<%= treatmentDetails[0].treatmentID %>">Add Treatment Detail</a>
+
+
     </main>
   </body>
 </html>

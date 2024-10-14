@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Treatment</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+
+</head>
+<body>
+    <header>
+        <h1>Update Treatment</h1>
+    </header>
+    
+    <main>
+        <form id="update-treatment-detail-form" action="/update-treatment/<%= treatment.id %>" method="POST">
+            <!-- Hidden field for treatment ID -->
+            <input type="hidden" name="id" value="<%= treatment.id %>">
+    
+            <!-- Doctor ID -->
+            <label for="doctorID">Doctor ID:</label>
+            <input type="number" name="doctorID" id="doctorID" value="<%= treatment.doctorID %>" required>
+            <br><br>
+    
+            <!-- Patient ID -->
+            <label afor="patientID">Patient ID:</label>
+            <input type="number" name="patientID" id="patientID" value="<%= treatment.patientID %>" required>
+            <br><br>
+    
+            <!-- Status -->
+            <label for="status">Status:</label>
+            <input type="text" name="status" id="status" value="<%= treatment.status %>" required>
+            <br><br>
+    
+            <!-- Start Treatment Date -->
+            <label for="start_treatment_date">Start Treatment Date:</label>
+            <input type="datetime-local" name="start_treatment_date" id="start_treatment_date" value="<%= new Date(treatment.start_treatment_date).toISOString().slice(0, 16) %>" required>
+            <br><br>
+    
+            <!-- Last Treated Date -->
+            <label for="last_treated_date">Last Treated Date:</label>
+            <input type="datetime-local" name="last_treated_date" id="last_treated_date" value="<%= new Date(treatment.last_treated_date).toISOString().slice(0, 16) %>" required>
+            <br><br>
+    
+            <!-- Short Detail -->
+            <label for="short_detail">Short Detail:</label>
+            <textarea name="short_detail" id="short_detail" required><%= treatment.short_detail %></textarea>
+            <br><br>
+    
+            <!-- Submit Button -->
+            <button type="submit">Update Treatment</button>
+        </form>
+    </main>
+    
+</body>
+</html>

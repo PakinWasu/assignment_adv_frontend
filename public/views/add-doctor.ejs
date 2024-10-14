@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Doctor</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+
+</head>
+
+<body>
+    <header>
+        <h1>Add New Doctor</h1>
+    </header>
+    <main>
+        <form action="/add-doctor" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" required><br><br>
+
+            <label for="contact">Contact:</label>
+            <input type="text" id="contact" name="contact" required><br><br>
+
+            <label for="date_of_birth">Date of Birth:</label>
+            <input type="date" id="date_of_birth" name="date_of_birth" required><br><br>
+
+            <label for="doctor_detail">Doctor Details:</label>
+            <textarea id="doctor_detail" name="doctor_detail" rows="4" cols="50"></textarea><br><br>
+
+            <label for="medical_practice_license_number">Medical Practice License Number:</label>
+            <input type="text" id="medical_practice_license_number" name="medical_practice_license_number"
+                required><br><br>
+
+            <button type="submit">Add Doctor</button>
+        </form>
+    </main>
+
+</body>
+
+</html>

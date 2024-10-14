@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Treatment</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+
+</head>
+<body>
+    <header>
+      <h1>Add Treatment</h1>  
+    </header>
+    <main>
+        <form action="/add-treatment" method="POST">
+        <label for="doctorID">Select Doctor:</label>
+        <select name="doctorID" id="doctorID" required>
+            <option value="">-- Select Doctor --</option>
+            <% doctors.forEach(doctor => { %>
+                <option value="<%= doctor.id %>"><%= doctor.name %></option>
+            <% }); %>
+        </select>
+
+        <br><br>
+
+        <label for="patientID">Select Patient:</label>
+        <select name="patientID" id="patientID" required>
+            <option value="">-- Select Patient --</option>
+            <% patients.forEach(patient => { %>
+                <option value="<%= patient.id %>"><%= patient.name %></option>
+            <% }); %>
+        </select>
+
+        <br><br>
+
+        <label for="status">Status:</label>
+        <input type="text" name="status" id="status" required>
+
+        <br><br>
+
+        <label for="start_treatment_date">Start Treatment Date:</label>
+        <input type="datetime-local" name="start_treatment_date" id="start_treatment_date" required>
+
+        <br><br>
+
+        <label for="last_treated_date">Last Treated Date:</label>
+        <input type="datetime-local" name="last_treated_date" id="last_treated_date" required>
+
+        <br><br>
+
+        <label for="short_detail">Short Detail:</label>
+        <textarea name="short_detail" id="short_detail" rows="4" required></textarea>
+
+        <br><br>
+
+        <button type="submit">Add Treatment</button>
+    </form>
+    </main>
+    
+</body>
+</html>

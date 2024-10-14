@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css" />
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Patients List</h1>
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Blood Type</th>
+                    <th>Weight</th>
+                    <th>Height</th>
+                    <th>Contact</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (patients.length > 0) { %>
+                    <% patients.forEach(patient => { %>
+                        <tr>
+                            <td><%= patient.id %></td>
+                            <td><%= patient.name %></td>
+                            <td><%= patient.date_of_birth %></td>
+                            <td><%= patient.blood_type %></td>
+                            <td><%= patient.weight %></td>
+                            <td><%= patient.height %></td>
+                            <td><%= patient.contact %></td>
+                            <td><%= patient.patient_detail %></td>
+                            <td><a href="/update-patient/<%= patient.id %>">Edit</a></td>
+                            <td><a href="/delete-patient/<%= patient.id %>">Del</a></td>
+                            
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="8" class="text-center">No patients found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <a href="/add-patient" class="btn btn-primary">Add Patient</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

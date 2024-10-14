@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clinic Management System</title>
     <link rel="stylesheet" href="../css/styles.css" />
+    
   </head>
   <body>
     <header>
@@ -27,7 +28,6 @@
             <th>Short Detail</th>
             <th>Doctor Name</th>
             <th>Patient Name</th>
-            <th>Details</th>
 
           </tr>
         </thead>
@@ -42,10 +42,18 @@
             <td><%= treatment.doctor_name %></td>
             <td><%= treatment.patient_name %></td>
             <td><a class="details-link" href="/treatment-details/<%= treatment.id %>">Details</a></td>
+            <td><a class="details-link" href="/update-treatment/<%= treatment.id %>">Edit</a></td>
 
             
           </tr>
           <% }) %>
+
+          <a href="/add-doctor">Add Doctors</a>
+          <a href="/add-patient">Add Patient</a>
+          <a href="/add-treatment">Add Treatment</a>
+
+
+
         </tbody>
       </table>
     </main>
