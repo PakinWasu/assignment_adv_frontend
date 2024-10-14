@@ -11,7 +11,6 @@
       <h1>INET Clinic</h1>
       <nav>
         <a href="/">Home</a>
-        <a href="/treatment">Treatments</a>
         <a href="/patients">Patients</a>
         <a href="/doctors">Doctors</a>
       </nav>
@@ -27,10 +26,8 @@
         <p><strong>Last Treated Date:</strong> <%= treatmentDetails[0].last_treated_date %></p>
         <p><strong>Short Detail:</strong> <%= treatmentDetails[0].short_detail %></p>
         <p><strong>Doctor Name:</strong> <%= treatmentDetails[0].doctor_name %></p>
-        <a href="/update-doctor/<%= treatmentDetails[0].doctorID %>">Edit</a>
         <p><strong>Patient Name:</strong> <%= treatmentDetails[0].patient_name %></p>
-        <a href="/update-patient/<%= treatmentDetails[0].patientID %>">Edit</a>
-        <a href="/delete-treatment/<%= treatmentDetails[0].treatmentID %>">Delete</a>
+        <a href="/delete-treatment/<%= treatmentDetails[0].treatmentID %>">Delete Treatment</a>
 
       </div>
 
