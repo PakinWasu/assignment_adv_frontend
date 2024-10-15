@@ -184,13 +184,14 @@ app.get('/treatment-details/:treatmentID', async (req, res) => {
         const treatmentDetails = response.data;
 
         if (treatmentDetails.length === 0) {
-            return res.status(404).send('No treatment details found for the given treatment ID.');
+            return res.redirect(`/add-treatment-detail?treatmentID=${treatmentID}`);
         }
 
         res.render('treatment-details', { treatmentDetails });
     } catch (err) {
         console.error('Error fetching treatment details:', err);
-        res.status(500).send('Error fetching treatment details');
+
+        return res.redirect(`/add-treatment-detail?treatmentID=${treatmentID}`);
     }
 });
 
