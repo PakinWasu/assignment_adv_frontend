@@ -3,69 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Treatment Details</title>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <title>INET Clinic - Clinic Management System</title>
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
     <header>
-      <h1>INET Clinic</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/patients">Patients</a>
-        <a href="/doctors">Doctors</a>
-      </nav>
-    </header>
-    <main>
-      <h2>Treatment Details</h2>
-
-      <!-- ส่วนแสดงข้อมูลหลักเหนือตาราง -->
-      <div class="treatment-summary">
-        <p><strong>Treatment ID:</strong> <%= treatmentDetails[0].treatmentID %></p>
-        <p><strong>Status:</strong> <%= treatmentDetails[0].status %></p>
-        <p><strong>Start Treatment Date:</strong> <%= treatmentDetails[0].start_treatment_date %></p>
-        <p><strong>Last Treated Date:</strong> <%= treatmentDetails[0].last_treated_date %></p>
-        <p><strong>Short Detail:</strong> <%= treatmentDetails[0].short_detail %></p>
-        <p><strong>Doctor Name:</strong> <%= treatmentDetails[0].doctor_name %></p>
-        <p><strong>Patient Name:</strong> <%= treatmentDetails[0].patient_name %></p>
-        <a href="/delete-treatment/<%= treatmentDetails[0].treatmentID %>">Delete Treatment</a>
-
+      <div class="container">
+        <h1>INET Clinic</h1>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/patients">Patients</a>
+          <a href="/doctors">Doctors</a>
+        </nav>
       </div>
+    </header>
+    <main class="treatment-details">
+        <h2>Treatment Details</h2>
 
-      <!-- ตารางแสดงรายละเอียดการรักษาที่เหลือ -->
-      <% if (treatmentDetails.length > 0) { %>
-      <table>
-        <thead>
-          <tr>
-            <th>Treatment Detail ID</th>
-            <th>Timestamp</th>
-            <th>Next Treatment Date</th>
-            <th>Dispensing Medicine</th>
-            <th>Latest Treatment Detail</th>
-            <th>Edit</th>
+        <!-- ส่วนแสดงข้อมูลหลักเหนือตาราง -->
+        <div class="treatment-summary">
+            <p><strong>รหัสการรักษา:</strong> <%= treatmentDetails[0].treatmentID %></p>
+            <p><strong>สถานะ:</strong> <%= treatmentDetails[0].status %></p>
+            <p><strong>วันที่เริ่มการรักษา:</strong> <%= treatmentDetails[0].start_treatment_date %></p>
+            <p><strong>วันที่รักษาครั้งสุดท้าย::</strong> <%= treatmentDetails[0].last_treated_date %></p>
+            <p><strong>อาการ:</strong> <%= treatmentDetails[0].short_detail %></p>
+            <p><strong>ชื่อหมอ:</strong> <%= treatmentDetails[0].doctor_name %></p>
+            <p><strong>ชื่อผู้ป่วย:</strong> <%= treatmentDetails[0].patient_name %></p>
+            <div class="text-center">
+                <a href="/delete-treatment/<%= treatmentDetails[0].treatmentID %>" class="btn btn-danger">Delete Treatment</a>
+            </div>
+        </div>
 
-          </tr>
-        </thead>
-        <tbody>
-          <% treatmentDetails.forEach(detail => { %>
-          <tr>
-            <td><%= detail.treatment_detail_id %></td>
-            <td><%= detail.timestamp %></td>
-            <td><%= detail.next_treatment_date %></td>
-            <td><%= detail.dispensing_medicine %></td>
-            <td><%= detail.latest_treatment_detail %></td>
-            <td><a class="details-link" href="/update-treatment-detail/<%= detail.treatment_detail_id %>">Details</a></td>
-            <td><a class="details-link" href="/delete-treatment-detail/<%= detail.treatment_detail_id %>">Del</a></td>
-
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
-      <% } else { %>
-      <p>No treatment details found for this treatment ID.</p>
-      <% } %>
-      <a href="/add-treatment-detail?treatmentID=<%= treatmentDetails[0].treatmentID %>">Add Treatment Detail</a>
-
-
+        <!-- ตารางแสดงรายละเอียดการรักษาที่เหลือ -->
+        <% if (treatmentDetails.length > 0) { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>รหัสรการรักษา</th>
+                    <th>บันทึกล่าสุด</th>
+                    <th>วันทําการรักษาครั้งถัดไป</th>
+                    <th>การจ่ายยา</th>
+                    <th>รายละเอียดการรักษาล่าสุด</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% treatmentDetails.forEach(detail => { %>
+                <tr>
+                    <td><%= detail.treatment_detail_id %></td>
+                    <td><%= detail.timestamp %></td>
+                    <td><%= detail.next_treatment_date %></td>
+                    <td><%= detail.dispensing_medicine %></td>
+                    <td><%= detail.latest_treatment_detail %></td>
+                    <td>
+                        <a class="btn btn-warning btn-sm mx-1" href="/update-treatment-detail/<%= detail.treatment_detail_id %>">Edit</a>
+                        <a class="btn btn-danger btn-sm mx-1" href="/delete-treatment-detail/<%= detail.treatment_detail_id %>">Delete</a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <% } else { %>
+        <p>No treatment details found for this treatment ID.</p>
+        <% } %>
+        <div class="text-center mt-3">
+            <a href="/add-treatment-detail?treatmentID=<%= treatmentDetails[0].treatmentID %>" class="btn btn-primary">Add Treatment Detail</a>
+        </div>
     </main>
-  </body>
+</body>
 </html>

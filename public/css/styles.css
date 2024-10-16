@@ -8,23 +8,61 @@
 body {
  font-family: Arial, sans-serif;
  background-color: #f4f4f4; /* Light gray background */
- color: #333; /* Dark text color */
+ color: #333333; /* Dark text color */
  line-height: 1.6; /* Improve line height for readability */
 }
 
+/* จัดการ header */
 header {
- background: #007bff; /* Blue background for header */
- color: white; /* White text color */
- padding: 10px 20px; /* Padding around the header */
-}
+    background-color: #f0f8ff; /* สีฟ้าอ่อนให้ความรู้สึกสะอาดและสบายตา */
+    border-bottom: 2px solid #00aaff; /* สีเข้มขึ้นเพื่อเน้น header */
+    padding: 15px 0;
+  }
+  
+header .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
+/* จัดการสไตล์ของ h1 */
 header h1 {
- margin: 0; /* Remove default margin */
-}
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+  }
 
 nav {
  margin-top: 10px; /* Space between the header title and navigation */
 }
+
+/* จัดการสไตล์ของเมนูนำทาง */
+header nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+/* การเปลี่ยนสีของลิงก์เมื่อ hover */
+header nav a:hover {
+  color: #0056b3;
+}
+
+/* การจัดการการแสดงผลในหน้าจอขนาดเล็ก */
+@media (max-width: 768px) {
+    header .container {
+      flex-direction: column;
+    }
+  
+    header nav {
+      margin-top: 10px;
+    }
+  }
 
 nav a {
  color: white; /* White text for links */
@@ -45,30 +83,26 @@ h2 {
  margin-bottom: 20px; /* Space below the heading */
 }
 
+/* จัดการตาราง */
 table {
- width: 100%; /* Full width table */
- border-collapse: collapse; /* Collapse borders */
- margin-top: 20px; /* Space above the table */
-}
-
-th, td {
- border: 1px solid #dddddd; /* Light gray border */
- text-align: left; /* Left-align text */
- padding: 12px; /* Padding for table cells */
-}
-
-th {
- background-color: #007bff; /* Blue background for header cells */
- color: white; /* White text color for header cells */
-}
-
-tr:nth-child(even) {
- background-color: #f2f2f2; /* Light gray for even rows */
-}
-
-tr:hover {
- background-color: #e9ecef; /* Slightly darker gray on row hover */
-}
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
 
 a.details-link {
  display: inline-block; /* Make it block-level for padding */
@@ -82,4 +116,890 @@ a.details-link {
 
 a.details-link:hover {
  background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* styles.css */
+
+/* สไตล์ปุ่มพร้อมลูกเล่น */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* เพิ่มเอฟเฟกต์ hover */
+  .button:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* เอฟเฟกต์แบบ ripple */
+  .button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-out, height 0.4s ease-out;
+  }
+  
+  /* เมื่อกดปุ่ม */
+  .button:active::after {
+    width: 200%;
+    height: 200%;
+    transition: 0s;
+  }
+  
+
+
+
+/* สไตล์สำหรับหน้า Add Doctor */
+.add-doctor header {
+    background-color: #f0f8ff; /* สีพื้นหลัง */
+    padding: 20px 0; /* ช่องว่างด้านบนและล่าง */
+    border-bottom: 2px solid #00aaff; /* เส้นขอบล่าง */
+    text-align: center; /* จัดข้อความใน header ให้ตรงกลาง */
+}
+
+/* จัดการหัวข้อ */
+.add-doctor h1 {
+    margin: 0; /* เอาช่องว่างรอบๆ หัวข้อออก */
+    font-size: 2rem; /* ขนาดตัวอักษร */
+    color: #333; /* สีตัวอักษร */
+}
+
+/* จัดการ container */
+.add-doctor .container {
+    width: 90%; /* กำหนดความกว้างของ container */
+    max-width: 800px; /* กำหนดความกว้างสูงสุดของ container */
+    margin: 0 auto; /* จัดให้อยู่กลางหน้าจอ */
+}
+
+.add-doctor main {
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    padding: 40px 20px; /* เพิ่ม Padding รอบๆ หน้า */
+    border-radius: 8px; /* มุมโค้งมน */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เงา */
+    max-width: 600px; /* กำหนดความกว้างสูงสุด */
+    margin: auto; /* จัดกลางฟอร์ม */
+}
+
+.add-doctor .form-container {
+    background: white; /* กำหนดสีพื้นหลังของฟอร์มให้เป็นสีขาว */
+    border-radius: 8px; /* มุมของฟอร์มจะโค้งมนเล็กน้อย */
+    padding: 30px; /* เพิ่มช่องว่างรอบฟอร์มภายใน */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาที่ด้านหลังเพื่อให้ฟอร์มดูลอยออกมา */
+    margin-top: 20px; /* เพิ่มช่องว่างด้านบนของฟอร์ม */
+}
+
+.add-doctor .form-group {
+    margin-bottom: 15px; /* เพิ่มช่องว่างด้านล่างระหว่างแต่ละกลุ่มของฟอร์ม */
+    text-align: left; /* จัดข้อความให้ชิดซ้าย */
+}
+
+.add-doctor label {
+    display: block; /* ให้ label แสดงเป็นบล็อก (เต็มบรรทัด) */
+    margin-bottom: 5px; /* เพิ่มช่องว่างด้านล่างของ label เพื่อไม่ให้ชิดกับ input */
+    font-weight: bold; /* กำหนดให้ตัวอักษรของ label เป็นตัวหนา */
+}
+
+.add-doctor input[type="text"],
+.add-doctor input[type="date"],
+.add-doctor textarea {
+    width: 100%; /* กำหนดความกว้างให้เต็มความกว้างของ container */
+    padding: 10px; /* เพิ่มช่องว่างภายใน input */
+    border: 1px solid #ccc; /* ใส่ขอบให้กับ input */
+    border-radius: 4px; /* ทำให้มุมของ input โค้งมน */
+    box-sizing: border-box; /* ทำให้ padding ไม่กระทบกับขนาดของ input */
+    margin-top: 5px; /* เพิ่มช่องว่างด้านบนของ input */
+}
+
+.add-doctor .submit-button {
+    background-color: #4CAF50; /* กำหนดสีพื้นหลังของปุ่มเป็นสีเขียว */
+    color: white; /* กำหนดสีตัวอักษรในปุ่มเป็นสีขาว */
+    border: none; /* เอาขอบของปุ่มออก */
+    padding: 15px 20px; /* เพิ่มช่องว่างภายในปุ่ม */
+    text-align: center; /* จัดข้อความในปุ่มให้อยู่ตรงกลาง */
+    text-decoration: none; /* เอาขีดเส้นใต้ที่อาจเกิดจากการเป็นลิงก์ออก */
+    display: inline-block; /* ให้ปุ่มแสดงเป็นแบบ inline-block */
+    font-size: 16px; /* กำหนดขนาดตัวอักษรในปุ่ม */
+    margin-top: 10px; /* เพิ่มช่องว่างด้านบนของปุ่ม */
+    border-radius: 5px; /* ทำให้มุมของปุ่มโค้งมน */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์ให้เป็นรูปมือเมื่อวางบนปุ่ม */
+    transition: background-color 0.3s ease; /* ทำให้สีพื้นหลังเปลี่ยนอย่างนุ่มนวลเมื่อโฮเวอร์ */
+}
+
+.add-doctor .submit-button:hover {
+    background-color: #45a049; /* เปลี่ยนสีพื้นหลังของปุ่มเมื่อโฮเวอร์ให้เป็นสีเขียวเข้มขึ้น */
+}
+
+@media (max-width: 768px) {
+    .add-doctor .container, .add-doctor .form-container {
+        width: 100%; /* กำหนดความกว้างเป็น 100% เมื่ออยู่ในหน้าจอเล็ก */
+        padding: 10px; /* ลดช่องว่างรอบฟอร์มเพื่อให้เหมาะสมกับหน้าจอเล็ก */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* styles.css Add Patient*/
+
+/* สไตล์สำหรับหน้า Add Patient */
+.add-patient header {
+    background-color: #f0f8ff; /* สีพื้นหลัง */
+    padding: 20px 0; /* ช่องว่างด้านบนและล่าง */
+    border-bottom: 2px solid #00aaff; /* เส้นขอบล่าง */
+    text-align: center; /* จัดข้อความให้ตรงกลาง */
+}
+
+.add-patient .container {
+    width: 90%; /* กำหนดความกว้างของ container */
+    max-width: 800px; /* กำหนดความกว้างสูงสุด */
+    margin: 0 auto; /* จัดให้อยู่กลางหน้าจอ */
+}
+
+/* สไตล์สำหรับ form-container */
+.add-patient .form-container {
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    padding: 40px 20px; /* เพิ่ม Padding รอบๆ หน้า */
+    border-radius: 8px; /* มุมโค้งมน */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เงา */
+    max-width: 600px; /* กำหนดความกว้างสูงสุด */
+    margin: auto; /* จัดกลางฟอร์ม */
+}
+
+/* สไตล์สำหรับแต่ละกลุ่มของฟอร์ม */
+.add-patient .form-group {
+    margin-bottom: 15px; /* ช่องว่างระหว่างกลุ่ม */
+    text-align: left; /* จัดข้อความให้ชิดซ้าย */
+}
+
+.add-patient label {
+    display: block; /* ให้ label แสดงเป็นบล็อก */
+    margin-bottom: 5px; /* ช่องว่างด้านล่าง */
+    font-weight: bold; /* ตัวหนา */
+}
+
+.add-patient input[type="text"],
+.add-patient input[type="date"],
+.add-patient input[type="number"],
+.add-patient textarea {
+    width: 100%; /* ความกว้างเต็ม */
+    padding: 10px; /* ช่องว่างภายใน */
+    border: 1px solid #ccc; /* ขอบ */
+    border-radius: 4px; /* มุมโค้งมน */
+    box-sizing: border-box; /* จัดการขนาด */
+    margin-top: 5px; /* ช่องว่างด้านบน */
+}
+
+.add-patient .submit-button {
+    background-color: #4CAF50; /* สีพื้นหลังของปุ่ม */
+    color: white; /* สีตัวอักษรในปุ่ม */
+    border: none; /* ไม่มีขอบ */
+    padding: 15px 20px; /* ช่องว่างภายในปุ่ม */
+    text-align: center; /* จัดข้อความในปุ่มให้ตรงกลาง */
+    text-decoration: none; /* เอาขีดเส้นใต้ที่อาจเกิดจากการเป็นลิงก์ */
+    display: inline-block; /* ให้ปุ่มแสดงเป็นแบบ inline-block */
+    font-size: 16px; /* ขนาดตัวอักษร */
+    margin-top: 10px; /* ช่องว่างด้านบนของปุ่ม */
+    border-radius: 5px; /* มุมโค้งมนของปุ่ม */
+    cursor: pointer; /* เคอร์เซอร์เป็นรูปมือเมื่อวางบนปุ่ม */
+    transition: background-color 0.3s ease; /* การเปลี่ยนสีพื้นหลังนุ่มนวล */
+}
+
+.add-patient .submit-button:hover {
+    background-color: #45a049; /* สีพื้นหลังของปุ่มเมื่อโฮเวอร์ */
+}
+
+@media (max-width: 768px) {
+    .add-patient .container, .add-patient .form-container {
+        width: 100%; /* ความกว้างเป็น 100% ในหน้าจอเล็ก */
+        padding: 10px; /* ลดช่องว่าง */
+    }
+}
+
+
+
+
+/* styles.css */
+
+/* สไตล์สำหรับหน้า Add Treatment */
+.add-treatment header {
+    background-color: #f0f8ff; /* สีพื้นหลัง */
+    padding: 20px 0; /* ช่องว่างด้านบนและล่าง */
+    border-bottom: 2px solid #00aaff; /* เส้นขอบล่าง */
+    text-align: center; /* จัดข้อความให้ตรงกลาง */
+}
+
+.add-treatment .container {
+    width: 90%; /* กำหนดความกว้างของ container */
+    max-width: 800px; /* กำหนดความกว้างสูงสุด */
+    margin: 0 auto; /* จัดให้อยู่กลางหน้าจอ */
+}
+
+/* สไตล์สำหรับ form-container */
+.add-treatment .form-container {
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    padding: 40px 20px; /* เพิ่ม Padding รอบๆ หน้า */
+    border-radius: 8px; /* มุมโค้งมน */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เงา */
+    max-width: 600px; /* กำหนดความกว้างสูงสุด */
+    margin: auto; /* จัดกลางฟอร์ม */
+}
+
+/* สไตล์สำหรับแต่ละกลุ่มของฟอร์ม */
+.add-treatment .form-group {
+    margin-bottom: 15px; /* ช่องว่างระหว่างกลุ่ม */
+    text-align: left; /* จัดข้อความให้ชิดซ้าย */
+}
+
+.add-treatment label {
+    display: block; /* ให้ label แสดงเป็นบล็อก */
+    margin-bottom: 5px; /* ช่องว่างด้านล่าง */
+    font-weight: bold; /* ตัวหนา */
+}
+
+.add-treatment select,
+.add-treatment input[type="text"],
+.add-treatment input[type="datetime-local"],
+.add-treatment textarea {
+    width: 100%; /* ความกว้างเต็ม */
+    padding: 10px; /* ช่องว่างภายใน */
+    border: 1px solid #ccc; /* ขอบ */
+    border-radius: 4px; /* มุมโค้งมน */
+    box-sizing: border-box; /* จัดการขนาด */
+    margin-top: 5px; /* ช่องว่างด้านบน */
+}
+
+/* สไตล์สำหรับปุ่ม */
+.add-treatment .submit-button {
+    background-color: #4CAF50; /* สีพื้นหลังของปุ่ม */
+    color: white; /* สีตัวอักษรในปุ่ม */
+    border: none; /* ไม่มีขอบ */
+    padding: 15px 20px; /* ช่องว่างภายในปุ่ม */
+    text-align: center; /* จัดข้อความในปุ่มให้ตรงกลาง */
+    text-decoration: none; /* เอาขีดเส้นใต้ที่อาจเกิดจากการเป็นลิงก์ */
+    display: inline-block; /* ให้ปุ่มแสดงเป็นแบบ inline-block */
+    font-size: 16px; /* ขนาดตัวอักษร */
+    margin-top: 10px; /* ช่องว่างด้านบนของปุ่ม */
+    border-radius: 5px; /* มุมโค้งมนของปุ่ม */
+    cursor: pointer; /* เคอร์เซอร์เป็นรูปมือเมื่อวางบนปุ่ม */
+    transition: background-color 0.3s ease; /* การเปลี่ยนสีพื้นหลังนุ่มนวล */
+}
+
+.add-treatment .submit-button:hover {
+    background-color: #45a049; /* สีพื้นหลังของปุ่มเมื่อโฮเวอร์ */
+}
+
+@media (max-width: 768px) {
+    .add-treatment .container, .add-treatment .form-container {
+        width: 100%; /* ความกว้างเป็น 100% ในหน้าจอเล็ก */
+        padding: 10px; /* ลดช่องว่าง */
+    }
+}
+
+
+
+
+/* styles.css */
+
+/* เพิ่มสไตล์เฉพาะสำหรับหน้า Add New Treatment Detail */
+.add-treatment-detail {
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    padding: 40px 20px; /* เพิ่ม Padding รอบๆ หน้า */
+    border-radius: 8px; /* มุมโค้งมน */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เงา */
+    max-width: 600px; /* กำหนดความกว้างสูงสุด */
+    margin: auto; /* จัดกลางฟอร์ม */
+}
+
+.add-treatment-detail h1 {
+    text-align: center; /* จัดกลางหัวข้อ */
+    color: #007bff; /* สีข้อความสำหรับหัวข้อ */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+    font-size: 2em; /* ขนาดตัวอักษรของหัวข้อ */
+}
+
+.form-group {
+    margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างฟอร์มกรุ๊ป */
+}
+
+label {
+    display: block; /* แสดง label เป็นบล็อก */
+    margin-bottom: 8px; /* เพิ่มระยะห่างด้านล่าง */
+    font-weight: bold; /* ทำให้ข้อความของ label หนา */
+}
+
+input[type="datetime-local"],
+input[type="date"],
+textarea {
+    width: 100%; /* กำหนดความกว้าง 100% */
+    padding: 10px; /* เพิ่ม Padding */
+    border: 1px solid #ced4da; /* สีขอบของช่องกรอกข้อมูล */
+    border-radius: 5px; /* มุมโค้งมนให้กับช่องกรอกข้อมูล */
+    box-sizing: border-box; /* ให้รวม Padding และ Border ในขนาด */
+}
+
+button {
+    background-color: #28a745; /* สีพื้นหลังของปุ่ม Add Treatment Detail */
+    color: white; /* สีข้อความ */
+    padding: 10px 20px; /* เพิ่ม Padding */
+    border: none; /* ไม่ให้มีขอบ */
+    border-radius: 5px; /* มุมโค้งมน */
+    cursor: pointer; /* เปลี่ยน cursor เมื่อโฮเวอร์ */
+    transition: background-color 0.3s, transform 0.2s; /* การเปลี่ยนสีพื้นหลังและขนาด */
+    display: block; /* แสดงปุ่มเป็นบล็อก */
+    margin: 0 auto; /* จัดกลางปุ่ม */
+}
+
+button:hover {
+    background-color: #218838; /* สีพื้นหลังเมื่อโฮเวอร์ */
+    transform: scale(1.05); /* ขยายขนาดเมื่อโฮเวอร์ */
+}
+
+
+
+
+
+
+
+
+
+/* styles.css */
+
+/* เพิ่มสไตล์เฉพาะสำหรับหน้า Patients List */
+.patients-list {
+    background-color: #f9f9f9; /* สีพื้นหลังสำหรับทั้งหน้า */
+    padding: 20px; /* เพิ่ม Padding รอบๆ หน้า */
+}
+
+.patients-list h1 {
+    margin-top: 0; /* ลบ Margin ด้านบน */
+    color: #007bff; /* สีข้อความสำหรับหัวข้อ */
+    text-align: center; /* จัดกลางข้อความ */
+}
+
+.patients-list .table {
+    border-radius: 8px; /* มุมโค้งมนให้กับตาราง */
+    overflow: hidden; /* ซ่อนมุมที่โค้ง */
+}
+
+.patients-list .table th, 
+.patients-list .table td {
+    vertical-align: middle; /* จัดตำแหน่งกลาง */
+}
+
+.patients-list .thead-light th {
+    background-color: #e9ecef; /* สีพื้นหลังของหัวตาราง */
+}
+
+/* ปรับแต่งปุ่ม */
+.patients-list .btn {
+    transition: background-color 0.3s, transform 0.2s; /* การเปลี่ยนสีพื้นหลังและขนาด */
+    padding: 10px 15px; /* เพิ่ม Padding ให้กับปุ่ม */
+    border-radius: 5px; /* มุมโค้งมนให้กับปุ่ม */
+    margin-right: 5px; /* เพิ่มระยะห่างด้านขวา */
+}
+
+.patients-list .btn:last-child {
+    margin-right: 0; /* ไม่ให้ปุ่มสุดท้ายมี margin ขวา */
+}
+
+.patients-list .btn:hover {
+    opacity: 0.8; /* ความโปร่งใสเมื่อโฮเวอร์ */
+    transform: scale(1.05); /* ขยายขนาดเมื่อโฮเวอร์ */
+}
+
+/* ปุ่ม Edit */
+.patients-list .btn-warning {
+    background-color: #ffc107; /* สีพื้นหลังของปุ่ม Edit */
+    border-color: #ffc107; /* สีขอบของปุ่ม Edit */
+    color: white;
+}
+
+.patients-list .btn-warning:hover {
+    background-color: #e0a800; /* สีพื้นหลังเมื่อโฮเวอร์ของปุ่ม Edit */
+}
+
+/* ปุ่ม Delete */
+.patients-list .btn-danger {
+    background-color: #dc3545; /* สีพื้นหลังของปุ่ม Delete */
+    border-color: #dc3545; /* สีขอบของปุ่ม Delete */
+    color: white;
+}
+
+.patients-list .btn-danger:hover {
+    background-color: #c82333; /* สีพื้นหลังเมื่อโฮเวอร์ของปุ่ม Delete */
+}
+
+/* ปรับแต่งปุ่ม Add Patient */
+.patients-list .btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.patients-list .btn-primary:hover {
+    background-color: #4CAF50; /* สีพื้นหลังเมื่อโฮเวอร์ของปุ่ม Add Patient */
+}
+
+/* แก้ไขการจัดตำแหน่งปุ่มใน container */
+.patients-list .container {
+    text-align: left; /* จัดกลางเนื้อหาใน container */
+}
+
+
+
+/* styles.css */
+
+/* เพิ่มสไตล์เฉพาะสำหรับหน้า Doctors List */
+.doctors-list {
+    background-color: #f9f9f9; /* สีพื้นหลังสำหรับทั้งหน้า */
+    padding: 20px; /* เพิ่ม Padding รอบๆ หน้า */
+}
+
+.doctors-list h1 {
+    color: #007bff; /* สีข้อความสำหรับหัวข้อ */
+    text-align: center;
+}
+
+.doctors-list .table {
+    border-radius: 8px; /* มุมโค้งมนให้กับตาราง */
+    overflow: hidden; /* ซ่อนมุมที่โค้ง */
+}
+
+.doctors-list .table th, 
+.doctors-list .table td {
+    vertical-align: middle; /* จัดตำแหน่งกลาง */
+}
+
+.doctors-list .thead-light th {
+    background-color: #e9ecef; /* สีพื้นหลังของหัวตาราง */
+}
+
+/* ปรับแต่งปุ่ม */
+.doctors-list .btn {
+    transition: background-color 0.3s, transform 0.2s; /* การเปลี่ยนสีพื้นหลังและขนาด */
+    padding: 10px 15px; /* เพิ่ม Padding ให้กับปุ่ม */
+    border-radius: 5px; /* มุมโค้งมนให้กับปุ่ม */
+    margin-right: 5px; /* เพิ่มระยะห่างด้านขวา */
+}
+
+.doctors-list .btn:last-child {
+    margin-right: 0; /* ไม่ให้ปุ่มสุดท้ายมี margin ขวา */
+}
+
+.doctors-list .btn:hover {
+    opacity: 0.8; /* ความโปร่งใสเมื่อโฮเวอร์ */
+    transform: scale(1.05); /* ขยายขนาดเมื่อโฮเวอร์ */
+}
+
+/* ปุ่ม Edit */
+.doctors-list .btn-warning {
+    background-color: #ffc107; /* สีพื้นหลังของปุ่ม Edit */
+    border-color: #ffc107; /* สีขอบของปุ่ม Edit */
+    color: white;
+}
+
+.doctors-list .btn-warning:hover {
+    background-color: #e0a800; /* สีพื้นหลังเมื่อโฮเวอร์ของปุ่ม Edit */
+}
+
+/* ปุ่ม Delete */
+.doctors-list .btn-danger {
+    background-color: #dc3545; /* สีพื้นหลังของปุ่ม Delete */
+    border-color: #dc3545; /* สีขอบของปุ่ม Delete */
+    color: white;
+}
+
+.doctors-list .btn-danger:hover {
+    background-color: #c82333; /* สีพื้นหลังเมื่อโฮเวอร์ของปุ่ม Delete */
+}
+
+/* ปรับแต่งปุ่ม Add Doctor */
+.doctors-list .btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* สีพื้นหลังของปุ่ม Add Doctor */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.doctors-list .btn-primary:hover {
+    background-color: #45a049; /* สีพื้นหลังเมื่อโฮเวอร์ของปุ่ม Add Doctor */
+}
+
+/* แก้ไขการจัดตำแหน่งปุ่มใน container */
+.doctors-list .container {
+    text-align: left; /* จัดกลางเนื้อหาใน container */
+}
+
+
+
+/* styles.css */
+
+/* สไตล์สำหรับหน้า Treatment Details */
+.treatment-details {
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    padding: 20px; /* เพิ่ม Padding */
+}
+
+.treatment-summary {
+    background-color: #ffffff; /* สีพื้นหลังของสรุปการรักษา */
+    padding: 20px; /* Padding รอบๆ */
+    border-radius: 8px; /* มุมโค้งมน */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงา */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+}
+
+/* ปรับแต่งตาราง */
+.table {
+    width: 100%; /* ให้ตารางเต็มความกว้าง */
+    margin-top: 20px; /* ระยะห่างด้านบน */
+}
+
+/* ปรับแต่งปุ่ม */
+.btn {
+    transition: background-color 0.3s, transform 0.2s; /* การเปลี่ยนสีพื้นหลังและขนาด */
+    padding: 10px 15px; /* เพิ่ม Padding ให้กับปุ่ม */
+    border-radius: 5px; /* มุมโค้งมนให้กับปุ่ม */
+    margin-right: 5px; /* เพิ่มระยะห่างด้านขวา */
+}
+
+.btn:last-child {
+    margin-right: 0; /* ไม่ให้ปุ่มสุดท้ายมี margin ขวา */
+}
+
+.btn:hover {
+    opacity: 0.8; /* ความโปร่งใสเมื่อโฮเวอร์ */
+    transform: scale(1.05); /* ขยายขนาดเมื่อโฮเวอร์ */
+}
+
+/* ปุ่ม Delete */
+.btn-danger {
+    background-color: #dc3545; /* สีพื้นหลังของปุ่ม Delete */
+    border-color: #dc3545; /* สีขอบของปุ่ม Delete */
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* สีพื้นหลังเมื่อโฮเวอร์ของปุ่ม Delete */
+}
+
+/* ปุ่ม Edit */
+.btn-warning {
+    background-color: #ffc107; /* สีพื้นหลังของปุ่ม Edit */
+    border-color: #ffc107; /* สีขอบของปุ่ม Edit */
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800; /* สีพื้นหลังเมื่อโฮเวอร์ของปุ่ม Edit */
+}
+
+/* ปุ่ม Add Treatment Detail */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* สีพื้นหลังของปุ่ม Add  */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    background-color: #45a049; /* สีพื้นหลังเมื่อโฮเวอร์ของปุ่ม Add Treatment Detail */
+}
+
+/* จัดระยะห่างปุ่ม */
+.btn {
+    margin: 10px 5px; /* เพิ่มระยะห่างด้านบนและล่าง 10px และด้านซ้ายและขวา 5px */
+}
+
+/* จัดตำแหน่งกลางสำหรับข้อความ */
+.text-center {
+    text-align: center; /* จัดกลางข้อความ */
+}
+
+
+/* styles.css */
+
+/* เพิ่มสไตล์เฉพาะสำหรับหน้า Update Treatment Detail */
+.update-treatment-detail {
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    padding: 40px 20px; /* เพิ่ม Padding รอบๆ หน้า */
+    border-radius: 8px; /* มุมโค้งมน */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เงา */
+}
+
+.update-treatment-detail h1 {
+    text-align: center; /* จัดกลางหัวข้อ */
+    color: #007bff; /* สีข้อความสำหรับหัวข้อ */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+    font-size: 2em; /* ขนาดตัวอักษรของหัวข้อ */
+}
+
+/* สไตล์สำหรับฟอร์ม */
+.update-treatment-detail form {
+    display: block; /* ใช้การจัดเรียงแบบบล็อก */
+    max-width: 600px; /* กำหนดความกว้างสูงสุดของฟอร์ม */
+    margin: auto; /* จัดกลางฟอร์ม */
+}
+
+/* ปรับสไตล์ของ label */
+.update-treatment-detail label {
+    margin-bottom: 5px; /* ลดระยะห่างด้านล่างของ label */
+    font-weight: bold; /* ทำให้ข้อความของ label หนา */
+}
+
+/* ปรับสไตล์ของ input และ textarea */
+.update-treatment-detail input, 
+.update-treatment-detail textarea {
+    padding: 10px; /* เพิ่ม Padding ให้กับช่องกรอกข้อมูล */
+    border: 1px solid #ced4da; /* สีขอบของช่องกรอกข้อมูล */
+    border-radius: 5px; /* มุมโค้งมนให้กับช่องกรอกข้อมูล */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+    width: 100%; /* ให้ช่องกรอกข้อมูลมีความกว้างเต็มที่ */
+    box-sizing: border-box; /* ทำให้ Padding และ Border รวมในความกว้าง */
+}
+
+/* ปุ่ม Update */
+.update-treatment-detail button {
+    background-color: #28a745; /* สีพื้นหลังของปุ่ม Update */
+    color: white; /* สีข้อความ */
+    padding: 10px; /* เพิ่ม Padding */
+    border: none; /* ไม่ให้มีขอบ */
+    border-radius: 5px; /* มุมโค้งมน */
+    cursor: pointer; /* เปลี่ยน cursor เมื่อโฮเวอร์ */
+    transition: background-color 0.3s, transform 0.2s; /* การเปลี่ยนสีพื้นหลังและขนาด */
+}
+
+.update-treatment-detail button:hover {
+    background-color: #218838; /* สีพื้นหลังเมื่อโฮเวอร์ */
+    transform: scale(1.05); /* ขยายขนาดเมื่อโฮเวอร์ */
+}
+
+
+
+/* styles.css */
+
+/* เพิ่มสไตล์เฉพาะสำหรับหน้า Update Treatment */
+.update-treatment {
+    background-color: #f0f0f0; /* สีพื้นหลัง */
+    padding: 40px 20px; /* เพิ่ม Padding รอบๆ หน้า */
+    border-radius: 8px; /* มุมโค้งมน */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เงา */
+}
+
+/* สไตล์สำหรับหัวข้อ */
+.update-treatment h1 {
+    text-align: center; /* จัดกลางหัวข้อ */
+    color: #007bff; /* สีข้อความสำหรับหัวข้อ */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+    font-size: 2.2em; /* ขนาดตัวอักษรของหัวข้อ */
+    font-weight: bold; /* ตัวหนา */
+}
+
+/* สไตล์สำหรับฟอร์ม */
+.update-treatment form {
+    display: block; /* ใช้การจัดเรียงแบบบล็อก */
+    max-width: 600px; /* กำหนดความกว้างสูงสุดของฟอร์ม */
+    margin: auto; /* จัดกลางฟอร์ม */
+}
+
+/* ปรับสไตล์ของ label */
+.update-treatment label {
+    margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่างของ label */
+    font-weight: bold; /* ทำให้ข้อความของ label หนา */
+}
+
+/* ปรับสไตล์ของ input และ textarea */
+.update-treatment input, 
+.update-treatment textarea {
+    padding: 10px; /* เพิ่ม Padding ให้กับช่องกรอกข้อมูล */
+    border: 1px solid #ced4da; /* สีขอบของช่องกรอกข้อมูล */
+    border-radius: 5px; /* มุมโค้งมนให้กับช่องกรอกข้อมูล */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+    width: 100%; /* กำหนดความกว้างเต็ม */
+}
+
+/* ปุ่ม Update */
+.update-treatment button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* สีพื้นหลังของปุ่ม Add  */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ปุ่ม Update เมื่อโฮเวอร์ */
+.update-treatment button:hover {
+    background-color: #4CAF50; /* สีพื้นหลังเมื่อโฮเวอร์ */
+    transform: scale(1.05); /* ขยายขนาดเมื่อโฮเวอร์ */
+}
+
+
+
+/* styles.css */
+
+/* เพิ่มสไตล์เฉพาะสำหรับหน้า Update Patient */
+.update-patient {
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    padding: 40px 20px; /* เพิ่ม Padding รอบๆ หน้า */
+    border-radius: 8px; /* มุมโค้งมน */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เงา */
+}
+
+.update-patient h2 {
+    text-align: center; /* จัดกลางหัวข้อ */
+    color: #007bff; /* สีข้อความสำหรับหัวข้อ */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+}
+
+/* สไตล์สำหรับฟอร์ม */
+.update-patient form {
+    display: block; /* ใช้การจัดเรียงแบบบล็อก */
+    max-width: 600px; /* กำหนดความกว้างสูงสุดของฟอร์ม */
+    margin: auto; /* จัดกลางฟอร์ม */
+}
+
+/* ปรับสไตล์ของ label */
+.update-patient label {
+    margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่างของ label */
+    font-weight: bold; /* ทำให้ข้อความของ label หนา */
+    display: block; /* แสดง label เป็นบล็อก */
+}
+
+/* ปรับสไตล์ของ input และ textarea */
+.update-patient input,
+.update-patient textarea {
+    padding: 10px; /* เพิ่ม Padding ให้กับช่องกรอกข้อมูล */
+    border: 1px solid #ced4da; /* สีขอบของช่องกรอกข้อมูล */
+    border-radius: 5px; /* มุมโค้งมนให้กับช่องกรอกข้อมูล */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+    width: 100%; /* ทำให้ช่องกรอกข้อมูลกว้าง 100% */
+}
+
+/* ปุ่ม Update */
+.update-patient .btn-submit {
+    background-color: #28a745; /* สีพื้นหลังของปุ่ม Update */
+    color: white; /* สีข้อความ */
+    padding: 10px 15px; /* เพิ่ม Padding */
+    border: none; /* ไม่ให้มีขอบ */
+    border-radius: 5px; /* มุมโค้งมน */
+    cursor: pointer; /* เปลี่ยน cursor เมื่อโฮเวอร์ */
+    transition: background-color 0.3s, transform 0.2s; /* การเปลี่ยนสีพื้นหลังและขนาด */
+    display: block; /* จัดให้ปุ่มอยู่ตรงกลาง */
+    margin: auto; /* จัดกลางปุ่ม */
+}
+
+.update-patient .btn-submit:hover {
+    background-color: #218838; /* สีพื้นหลังเมื่อโฮเวอร์ */
+    transform: scale(1.05); /* ขยายขนาดเมื่อโฮเวอร์ */
+}
+
+
+
+
+/* styles.css */
+
+/* สไตล์เฉพาะสำหรับหน้า Update Doctor */
+.update-doctor {
+    background-color: #f3f4f6; /* สีพื้นหลัง */
+    padding: 40px 20px; /* เพิ่ม Padding รอบๆ หน้า */
+    border-radius: 10px; /* มุมโค้งมน */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เงา */
+    max-width: 600px; /* กำหนดความกว้างสูงสุด */
+    margin: auto; /* จัดกลาง */
+}
+
+.update-doctor h2 {
+    text-align: center; /* จัดกลางหัวข้อ */
+    color: #007bff; /* สีข้อความสำหรับหัวข้อ */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+}
+
+/* สไตล์สำหรับฟอร์ม */
+.update-doctor form {
+    display: block; /* ใช้การจัดเรียงแบบบล็อก */
+}
+
+/* ปรับสไตล์ของ label */
+.update-doctor label {
+    margin-bottom: 5px; /* เพิ่มระยะห่างด้านล่างของ label */
+    font-weight: bold; /* ทำให้ข้อความของ label หนา */
+}
+
+/* ปรับสไตล์ของ input และ textarea */
+.update-doctor input, 
+.update-doctor textarea {
+    padding: 10px; /* เพิ่ม Padding ให้กับช่องกรอกข้อมูล */
+    border: 1px solid #ced4da; /* สีขอบของช่องกรอกข้อมูล */
+    border-radius: 5px; /* มุมโค้งมนให้กับช่องกรอกข้อมูล */
+    margin-bottom: 15px; /* เพิ่มระยะห่างด้านล่าง */
+    width: 100%; /* กำหนดความกว้างให้เต็มที่ */
+}
+
+/* ปุ่ม Update */
+.update-doctor input[type="submit"] {
+    background-color: #28a745; /* สีพื้นหลังของปุ่ม Update */
+    color: white; /* สีข้อความ */
+    padding: 10px 15px; /* เพิ่ม Padding */
+    border: none; /* ไม่ให้มีขอบ */
+    border-radius: 5px; /* มุมโค้งมน */
+    cursor: pointer; /* เปลี่ยน cursor เมื่อโฮเวอร์ */
+    transition: background-color 0.3s, transform 0.2s; /* การเปลี่ยนสีพื้นหลังและขนาด */
+    display: block; /* จัดให้ปุ่มอยู่ตรงกลาง */
+    margin: auto; /* จัดกลางปุ่ม */
+}
+
+.update-doctor input[type="submit"]:hover {
+    background-color: #218838; /* สีพื้นหลังเมื่อโฮเวอร์ */
+    transform: scale(1.05); /* ขยายขนาดเมื่อโฮเวอร์ */
 }

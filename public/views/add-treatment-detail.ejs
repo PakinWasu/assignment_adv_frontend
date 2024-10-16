@@ -6,39 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Treatment Detail</title>
     <link rel="stylesheet" href="../css/styles.css" />
-
 </head>
 
 <body>
-    <header>
-        <h1>Add New Treatment Detail</h1>
+    <center><header>
+       <h1>Add New Treatment Detail</h1>
+    </header></center>
 
-    </header>
-
-    <h1>Add New Treatment Detail</h1>
-    
-    <p>Treatment ID: <%= treatmentID %></p> 
-    <main>
+    <main class="add-treatment-detail" style="margin-top: 20px;">
+        <p>ID-การรักษา: <strong><%= treatmentID %></strong></p>  
         <form action="/add-treatment-detail" method="POST">
-            <input type="hidden" name="treatmentID" value="<%= treatmentID %>"> <!-- Hidden field for treatmentID -->
-    
-            <label for="timestamp">Timestamp:</label>
-            <input type="datetime-local" id="timestamp" name="timestamp" required><br><br>
-    
-            <label for="next_treatment_date">Next Treatment Date:</label>
-            <input type="date" id="next_treatment_date" name="next_treatment_date" required><br><br>
-    
-            <label for="dispensing_medicine">Dispensing Medicine:</label>
-            <textarea id="dispensing_medicine" name="dispensing_medicine" rows="4" cols="50" required></textarea><br><br>
-    
-            <label for="latest_treatment_detail">Latest Treatment Detail:</label>
-            <textarea id="latest_treatment_detail" name="latest_treatment_detail" rows="4" cols="50" required></textarea><br><br>
-    
+            <input type="text" id="treatmentID" name="treatmentID" value="<%= treatmentID%>" required />
+
+            <div class="form-group">
+                <label for="timestamp">วันที่รักษา:</label>
+                <input type="datetime-local" id="timestamp" name="timestamp" required>
+            </div>
+
+            <div class="form-group">
+                <label for="next_treatment_date">วันที่นัดการรักษา:</label>
+                <input type="date" id="next_treatment_date" name="next_treatment_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dispensing_medicine">การจ่ายยา</label>
+                <textarea id="dispensing_medicine" name="dispensing_medicine" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="latest_treatment_detail">รายละเอียดการรักษา:</label>
+                <textarea id="latest_treatment_detail" name="latest_treatment_detail" rows="4" required></textarea>
+            </div>
+
             <button type="submit">Add Treatment Detail</button>
-        
         </form>
     </main>
-
 </body>
 
 </html>

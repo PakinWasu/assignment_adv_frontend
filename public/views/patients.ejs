@@ -6,22 +6,22 @@
     <title>Patients List</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css" />
-
 </head>
-<body>
+<body class="patients-list">
     <div class="container">
-        <h1 class="mt-5">Patients List</h1>
-        <table class="table mt-3">
-            <thead>
+        <h1 class="text-center mt-5">Patients List</h1>
+        <table class="table table-striped table-bordered mt-3">
+            <thead class="thead-light">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Date of Birth</th>
-                    <th>Blood Type</th>
-                    <th>Weight</th>
-                    <th>Height</th>
-                    <th>Contact</th>
-                    <th>Details</th>
+                    <th>ชื่อ</th>
+                    <th>วัน/เดือน/ปีเกิด</th>
+                    <th>กรุ๊ปเลือด</th>
+                    <th>น้ำหนัก (กก.)</th>
+                    <th>ส่วนสูง (ซม.)</th>
+                    <th>ติดต่อ</th>
+                    <th>รายละเอียดผู้ป่วย</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,19 +36,22 @@
                             <td><%= patient.height %></td>
                             <td><%= patient.contact %></td>
                             <td><%= patient.patient_detail %></td>
-                            <td><a href="/update-patient/<%= patient.id %>">Edit</a></td>
-                            <td><a href="/delete-patient/<%= patient.id %>">Del</a></td>
-                            
+                            <td>
+                                <a href="/update-patient/<%= patient.id %>" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="/delete-patient/<%= patient.id %>" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
                         </tr>
                     <% }); %>
                 <% } else { %>
                     <tr>
-                        <td colspan="8" class="text-center">No patients found</td>
+                        <td colspan="9" class="text-center">No patients found</td>
                     </tr>
                 <% } %>
             </tbody>
         </table>
-        <a href="/add-patient" class="btn btn-primary">Add Patient</a>
+        <div class="text-center mt-3">
+            <a href="/add-patient" class="btn btn-primary">Add Patient</a>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>

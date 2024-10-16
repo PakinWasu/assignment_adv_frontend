@@ -3,59 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clinic Management System</title>
+    <title>INET Clinic - Clinic Management System</title>
     <link rel="stylesheet" href="../css/styles.css" />
-    
   </head>
   <body>
     <header>
-      <h1>INET Clinic</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/patients">Patients</a>
-        <a href="/doctors">Doctors</a>
-      </nav>
+      <div class="container">
+        <h1>INET Clinic</h1>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/patients">Patients</a>
+          <a href="/doctors">Doctors</a>
+        </nav>
+      </div>
     </header>
+  
     <main>
       <h2>Treatments</h2>
+      <div class="action-buttons">
+        <a href="/add-doctor" class="button">Add Doctors</a>
+        <a href="/add-patient" class="button">Add Patient</a>
+        <a href="/add-treatment" class="button">Add Treatment</a>
+      </div>
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Status</th>
-            <th>Start Date</th>
-            <th>Last Treated Date</th>
-            <th>Short Detail</th>
-            <th>Doctor Name</th>
-            <th>Patient Name</th>
-            <th></th>
-            <th></th>
-
+            <th>ชื่อผู้ป่วย</th>
+            <th>สถานะ</th>
+            <th>หมอผู้ดูแล</th>
+            <th>วันที่เข้าการรักษา</th>
+            <th>วันที่รักษาล่าสุด</th>
+            <th>อาการ</th>
+            <th>รายละเอียด</th>
+            <th>แก้ไข</th>
           </tr>
         </thead>
         <tbody>
           <% treatments.forEach(treatment => { %>
           <tr>
             <td><%= treatment.id %></td>
+            <td><%= treatment.patient_name %></td>
             <td><%= treatment.status %></td>
+            <td><%= treatment.doctor_name %></td>
             <td><%= treatment.start_treatment_date %></td>
             <td><%= treatment.last_treated_date %></td>
             <td><%= treatment.short_detail %></td>
-            <td><%= treatment.doctor_name %></td>
-            <td><%= treatment.patient_name %></td>
             <td><a class="details-link" href="/treatment-details/<%= treatment.id %>">Details</a></td>
             <td><a class="details-link" href="/update-treatment/<%= treatment.id %>">Edit</a></td>
-
-            
           </tr>
           <% }) %>
-
-          <a href="/add-doctor">Add Doctors</a>
-          <a href="/add-patient">Add Patient</a>
-          <a href="/add-treatment">Add Treatment</a>
-
-
-
         </tbody>
       </table>
     </main>

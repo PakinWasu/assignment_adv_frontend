@@ -4,30 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Update Treatment Detail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/styles.css" />
 </head>
-<body>
+<body class="update-treatment-detail">
     <header>
-        <h1>Update Treatment Detail</h1>
+        <h1 class="text-center">Update Treatment Detail</h1>
     </header>
-    <main>
+    <main class="container mt-3">
         <form id="update-treatment-detail-form" action="/update-treatment-detail/<%= treatmentDetail.id %>" method="POST">
-         <input type="hidden" id="treatmentID" name="treatmentID" value="<%= treatmentDetail.treatmentID %>" required />
-           
-            <label for="timestamp">Timestamp:</label>
-            <input type="datetime-local" id="timestamp" name="timestamp" value="<%= treatmentDetail.timestamp %>" required />
+            <input type="hidden" id="treatmentID" name="treatmentID" value="<%= treatmentDetail.treatmentID %>" required />
 
-            <label for="next_treatment_date">Next Treatment Date:</label>
-            <input type="date" id="next_treatment_date" name="next_treatment_date" value="<%= treatmentDetail.next_treatment_date %>" required />
+            <div class="form-group">
+                <label for="timestamp">วันที่เริ่มการรักษา:</label>
+                <input type="datetime-local" id="timestamp" name="timestamp" value="<%= treatmentDetail.timestamp %>" required class="form-control" />
+            </div>
 
-            <label for="dispensing_medicine">Dispensing Medicine:</label>
-            <textarea id="dispensing_medicine" name="dispensing_medicine" required><%= treatmentDetail.dispensing_medicine %></textarea>
+            <div class="form-group">
+                <label for="next_treatment_date">วันที่นัด:</label>
+                <input type="date" id="next_treatment_date" name="next_treatment_date" value="<%= treatmentDetail.next_treatment_date %>" required class="form-control" />
+            </div><br>
 
-            <label for="latest_treatment_detail">Latest Treatment Detail:</label>
-            <textarea id="latest_treatment_detail" name="latest_treatment_detail" required><%= treatmentDetail.latest_treatment_detail %></textarea>
+            <div class="form-group">
+                <label for="dispensing_medicine">การจ่ายยา:</label>
+                <textarea id="dispensing_medicine" name="dispensing_medicine" required class="form-control" rows="3"><%= treatmentDetail.dispensing_medicine %></textarea>
+            </div>
 
-            <button type="submit">Update</button>
+            <div class="form-group">
+                <label for="latest_treatment_detail">รายละเอียดการรักษาล่าสุด:</label>
+                <textarea id="latest_treatment_detail" name="latest_treatment_detail" required class="form-control" rows="3"><%= treatmentDetail.latest_treatment_detail %></textarea>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-success btn-lg">Update</button>
+            </div>
         </form>
     </main>
+
+    <script src="https://code.jquery.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

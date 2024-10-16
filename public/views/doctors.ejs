@@ -6,21 +6,21 @@
     <title>Doctors List</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css" />
-
 </head>
-<body>
+<body class="doctors-list">
     <div class="container">
-        <h1 class="mt-5">Doctors List</h1>
+        <h1 class="mt-5 text-center">Doctors List</h1>
         <table class="table mt-3">
-            <thead>
+            <thead class="thead-light">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Department</th>
-                    <th>Contact</th>
-                    <th>Date of Birth</th>
-                    <th>Medical Practice License Number</th>
-                    <th>Details</th>
+                    <th>ชื่อ</th>
+                    <th>แผนก</th>
+                    <th>ติดต่อ</th>
+                    <th>วัน/เดือน/ปีเกิด</th>
+                    <th>หมายเลขใบอนุญาตประกอบวิชาชีพ</th>
+                    <th>รายละเอียด</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,21 +34,22 @@
                             <td><%= doctor.date_of_birth %></td>
                             <td><%= doctor.medical_practice_license_number %></td>
                             <td><%= doctor.doctor_detail %></td>
-                            <td><a href="/update-doctor/<%= doctor.id %>">Edit</a></td>
-                            <td><a href="/delete-doctor/<%= doctor.id %>">Del</a></td>
-                            
-
-
+                            <td>
+                                <a href="/update-doctor/<%= doctor.id %>" class="btn btn-warning btn-sm mx-1">Edit</a>
+                                <a href="/delete-doctor/<%= doctor.id %>" class="btn btn-danger btn-sm mx-1">Delete</a>
+                            </td>
                         </tr>
                     <% }); %>
                 <% } else { %>
                     <tr>
-                        <td colspan="7" class="text-center">No doctors found</td>
+                        <td colspan="8" class="text-center">No doctors found</td>
                     </tr>
                 <% } %>
             </tbody>
         </table>
-        <a href="/add-doctor" class="btn btn-primary">Add Doctor</a>
+        <div class="text-center mt-3">
+            <a href="/add-doctor" class="btn btn-primary btn-lg">Add Doctor</a>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
