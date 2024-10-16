@@ -5,7 +5,9 @@ var bodyParser = require('body-parser');
 const path = require('path')
 
 
-const base_url = "http://localhost:3000";
+// const base_url = "http://localhost:3000";
+const base_url = "https://node68420-inet-clinic.proen.app.ruk-com.cloud";
+
 
 app.set('views', path.join(__dirname, "/public/views"))
 app.set('view engine', 'ejs');
